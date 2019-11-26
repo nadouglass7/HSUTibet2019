@@ -1,0 +1,52 @@
+Purpose:
+- Show route of HSU Tibet Field Study trip summer 2019
+- Allow framework for future development for later years
+
+Layout:
+- Initial splash page
+- Map frame
+- Lower elevation plot
+- Left justified panel
+
+Data:
+- Lines:
+	- 2019 route
+		- name: route name to and from [Jekundo to Machen]; string
+		- type: line type - route will be filtered as most important to and from destination points, example of non-route would be local trip around a town [route, trail, other]; string
+		- class: route classification [railroad, bus, foot, car]; string
+		- year: year of field study [2019, 2014, etc]; integer
+		- len_km: length of route in km [2000.0521]; double
+		- len_mi: length of route in miles [1924.021]; double
+		- date Start: calander date start of particular route [2019-07-16T09:20:30.45+08:00]; ISO 8601
+		- date End: calender date end of particular route [2019-07-16T19:20:30.45+08:00]; ISO 8601
+		- date_order: date order of routes [1, 2, 3 ,4]; integer
+		- notes: additional text info about each route
+- Points:
+	- 2019 cities/stops
+		- name: city or stop name - comon english translation [Dartsendo]; string
+		- name_alt_zh: city name Chinese 
+		- name_alt_tib: city name in Tibetan
+		- type: point type - points filtered by kind of location, some more important than others [stops, features, physical, landmarks]
+		- class: classification of points by their geographic identification [cities, villiges, monestaries]
+		- overnight: specification if this was a place we stayed over night [y, n]; boolean
+		- ele_km:
+		- elev_ft:
+		- date:
+		- date_order:
+		- image:
+		
+
+
+
+Checklist:
+
+[] - Make toggle buttons map elements instead
+[] - Maximize map to fit entire frame
+[] - Add elevation profile
+[] - Add point data
+[] - Add box with image to point data
+[] - Loading bar?
+[] - Create start and end for routes
+[] - Fade in routes from start to finish
+[] - Generalize routes more at early zooms
+[] - Email Tsaring about toponyms

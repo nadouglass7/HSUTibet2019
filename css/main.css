@@ -1,0 +1,11 @@
+/* Main style sheet */
+
+/* To be categorized once stylesheet implemented:
+potential colors #0c4301 #5c8021 #e0e4e0 */
+
+.nav>a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #e0e4e0;
+}
+#map { position:absolute; top:0; bottom:0; width:100%; }
