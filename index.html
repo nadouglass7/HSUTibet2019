@@ -1,178 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
   <head>
-  	<!---
-  	Notes:
-  		-Things I could probablly trim off: Normalize, Bootsraping the map (for now)
-  		
-  	-->
+    <meta charset='utf-8' />
     <title>HSU Tibet Map</title>
-    <meta charset="utf-8">
-    <!-- Bootstrap ------------------>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <!-- Mapbox ------------------>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.0/mapbox-gl.css' rel='stylesheet'/>
-    <!-- CSS --->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/main.css">
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'  />
+    <!--    Include the reference to the Mapbox JavaScript here in the <head> of the page -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
+    <!--    Include the reference to the Mapbox CSS here in the <head> of the page -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        /* Insert the CSS code here between the <style> tags */
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
   </head>
+
   <body>
-    <!--
-    <nav>
-      <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" name="rtoggle" id="2000" data-toggle="tab" href="#" role="tab" aria-controls="nav-home" aria-selected="true">2000</a>
-        <a class="nav-item nav-link" name="rtoggle" id="2001" data-toggle="tab" href="#" role="tab" aria-controls="nav-profile" aria-selected="false">2001</a>
-        <a class="nav-item nav-link" id="2002" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2002</a>
-        <a class="nav-item nav-link disabled" id="2003" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2003</a>
-        <a class="nav-item nav-link" id="2004" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2004</a>
-        <a class="nav-item nav-link" id="2005" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2005</a>
-        <a class="nav-item nav-link" id="2006" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2006</a>
-        <a class="nav-item nav-link" id="2007" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2007</a>
-        <a class="nav-item nav-link" id="2008" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2008</a>
-        <a class="nav-item nav-link" id="2009" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2009</a>
-        <a class="nav-item nav-link" id="2010" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2010</a>
-        <a class="nav-item nav-link disabled" id="2011" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2011</a>
-        <a class="nav-item nav-link" id="2012" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2012</a>
-        <a class="nav-item nav-link" id="2013" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2013</a>
-        <a class="nav-item nav-link" id="2014" data-toggle="tab" href="#" role="tab" aria-controls="nav-contact" aria-selected="false">2014</a>
-      </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab"><p></p></div>
-      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab"></div>
-      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab"></div>
-    </div>
-    -->
-
-    
-    <!--- The map (see ../js/the_map.js)
-    <div class=".col-xs-4 .col-lg-8" id='map' style='width: 100%; height: 600px;'></div> --->
+    <!--  Insert the map div here in the <body> of the page  -->
+    <h1>This is my Map!</h1>
     <div id='map'></div>
-    <hr>
-      
-    <script >
-
-        //----------------------
-        //Main map .js file:
-        //
-        //	This page controls the main map element of the page
-        //----------------------
+    <script>
+        // Insert the JavaScript within the <script> tags, within the body   
+        // Start with the Mapbox access token here
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmRjYXJ0b2dyYXBoeSIsImEiOiJjazFneGRhZWsxOTh6M2RtdnBpaWE2dDA1In0.rA-WbVx8DbzgqKvV98puJg'
         
-        //--------------
-        // Access token for mapbox.js api
-        //--------------
-        mapboxgl.accessToken = 'pk.eyJ1IjoibmRjYXJ0b2dyYXBoeSIsImEiOiJjamNqZ2pzd3A0MHE5MnFwNWI3dzg4bnRkIn0.Ee7m_Pgw3mn5ZS9JJT6rRQ';
-        
-        //--------------
-        // Sets up the the map and it's styles
-        //--------------
+            
+        // Then initialize the map here
         var map = new mapboxgl.Map({
-        	container: 'map',
-        	center: [103,32.7845177], // uses [lon,lat]/[x,y]
-        	zoom: 3,
+            container: 'map', // id of a div on your page, where the map will be inserted
+            style:'mapbox://styles/mapbox/outdoors-v9', // stylesheet location -- swiss-ski
+            center: [103,32.7845177], // starting position [lng, lat] eg. [-122.6788, 45.5212]
+        	zoom: 4,
         	minZoom: 2.7,
-        	maxZoom: 5,
-        	//style: 'mapbox://styles/mapbox/streets-v9'
-        	style: 'mapbox://styles/mapbox/outdoors-v9'
-        	//style: 'mapbox://styles/mapbox/satellite-streets-v9'
+        	maxZoom: 5
         });
-        
-        //--------------
-        // Adds controls like zoom and north arrpw
-        //--------------
-        map.addControl(new mapboxgl.NavigationControl());
-        
-        //--------------
-        // Switch layers from nav tabs
-        //--------------
-        
-        function switchLayer(layer) {
-            var layerId = layer.target.id;
-            
-            // add (clear all layers here)
-            for (var i in layergroup) {
-            	if(map.getLayer(layergroup[i])) {
-            		map.removeLayer(layergroup[i]);
-            	}
-        	}
-            
-            map.addLayer({
-                "id": layerId,
-                "type": "line",
-                "source": layerId,
-                "paint": {
-                    "line-color": "#991bc6",
-                    "line-width": 2
-                },
-                "layout": {
-                    "line-join": "round",
-                    "line-cap": "round"
-                },
-            });
-        }
-        
-        //--------------
-        // Adds Layers:
-        //--------------
-        
-        var layerList = document.getElementById('nav-tab');
-        var inputs = layerList.getElementsByTagName('a');
-        var layergroup = [];
-        
-        for (var i = 0; i < inputs.length; i++) {
-        	layergroup.push(inputs[i].id);
-            inputs[i].onclick = switchLayer;
-        }
-        
+
+        // Add route data
         map.on("load", function() {
         
         	// Add the source data to the map
-            map.addSource("2000", {
-                type: "geojson",
-                data: "https://raw.githubusercontent.com/ndcartography/HSUTibet/master/data/2000.geojson"
+            map.addSource("2019", {
+                type: "geojson", data: "https://raw.githubusercontent.com/ndcartography/HSUTibet2019/master/data/route_2019.geojson"
             
             });
             // Add the route-2000 to the map with styles
             map.addLayer({
-                "id": "2000",
+                "id": "2019",
                 "type": "line",
-                "source": "2000",
+                "source": "2019",
                 "paint": {
                     "line-color": "#991bc6",
-                    "line-width": 2
+                    "line-width": 1.3
                 },
                 "layout": {
                     "line-join": "round",
                     "line-cap": "round"
                 },
             });
-            
-        	for (var i in layergroup) {
-        		var layerId = layergroup[i];
-        		switch (layerId) {
-        			case layergroup[0]:
-        			case "2003":
-        			case "2011":
-        				continue;
-        		}
-                map.addSource(layerId, {
-                    type: "geojson",
-                    data: "https://raw.githubusercontent.com/ndcartography/HSUTibet/master/data/" + layerId + ".geojson"
-            
-                });
-            }
         });
-
-
-
-      
-      
-      
+        
     </script>
+
   </body>
+
 </html>
