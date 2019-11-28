@@ -36,17 +36,23 @@
         // Add route data
         map.on("load", function() {
         
-        	// Add the source data to the map
-            map.addSource("2019", {
+        	// Add source for route data
+            map.addSource("route_2019", {
                 type: "geojson",
                 data: "https://raw.githubusercontent.com/ndcartography/HSUTibet2019/master/data/route_2019.geojson"
             
             });
-            // Add the route-2000 to the map with styles
+        	// Add source for point data
+            map.addSource("points_main_2019", {
+                type: "geojson",
+                data: "https://raw.githubusercontent.com/ndcartography/HSUTibet2019/master/data/points_main_2019.geojson"
+            
+            });
+            // Add the route-2019 as a layer with styles
             map.addLayer({
-                "id": "2019",
+                "id": "route_2019",
                 "type": "line",
-                "source": "2019",
+                "source": "route_2019",
                 "paint": {
                     "line-color": "#991bc6",
                     "line-width": 1.3
@@ -55,6 +61,25 @@
                     "line-join": "round",
                     "line-cap": "round"
                 },
+            });
+            // Add the point_main-2019 as a layer with styles
+            map.addLayer({
+                "id": "points_main_2019",
+                "type": "circle",
+                "source": "points_main_2019",
+                "paint": {
+                    "circle-radius": [
+                    	"match",
+                    	["get","type"],
+                    	'stop', 8,
+                    	/*other*/ 0
+                    ],                 	   
+                    "circle-color": "#991bc6"
+                },
+                // "layout": {
+                //     "line-join": "round",
+                //     "line-cap": "round"
+                // },
             });
         });
         
