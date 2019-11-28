@@ -50,3 +50,16 @@ Checklist:
 [] - Fade in routes from start to finish
 [] - Generalize routes more at early zooms
 [] - Email Tsaring about toponyms
+
+
+Workflows:
+
+Map class name of Stupas/Chortens through SQL:
+```
+CASE 
+  WHEN  ("name" ILIKE '%Chorten%') OR 
+   ("name" ILIKE '%Stupa%') 
+  Then  'Stupa/Chorten'
+  ELSE null
+END
+```
