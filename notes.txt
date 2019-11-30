@@ -36,7 +36,8 @@ Data:
 		- image:
 		
 
-
+Sources:
+- Charting: https://canvasjs.com/javascript-charts/chart-with-secondary-axis/
 
 Checklist:
 
@@ -50,7 +51,9 @@ Checklist:
 [] - Fade in routes from start to finish
 [] - Generalize routes more at early zooms
 [] - Email Tsaring about toponyms
-
+[] - Chart points
+[] - Make side bar menu and legend
+[] - Add loading bar
 
 Workflows:
 
