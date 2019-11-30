@@ -29,13 +29,12 @@
             style:'mapbox://styles/ndcartography/ck3gepwhh01vh1cpllgdz3auz', // stylesheet location -- landcover
             center: [103,32.7845177], // starting position [lng, lat] eg. [-122.6788, 45.5212]
         	zoom: 5,
-        	minZoom: 4.5,
+        	minZoom: 4.8,
         	maxZoom: 6
         });
 
         // Add route data
         map.on("load", function() {
-        
         	// Add source for route data
             map.addSource("route_2019", {
                 type: "geojson",

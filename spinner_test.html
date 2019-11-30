@@ -34,15 +34,13 @@
 </div>
   <script>
 
- mapboxgl.accessToken= 'pk.eyJ1IjoibmRjYXJ0b2dyYXBoeSIsImEiOiJjazFneGRhZWsxOTh6M2RtdnBpaWE2dDA1In0.rA-WbVx8DbzgqKvV98puJg';
-// Then initialize the map here
-var map = new mapboxgl.Map({
-    container: 'map', // id of a div on your page, where the map will be inserted
-    style:'mapbox://styles/ndcartography/ck3gepwhh01vh1cpllgdz3auz', // stylesheet location -- landcover
-    center: [103,32.7845177], // starting position [lng, lat] eg. [-122.6788, 45.5212]
-	zoom: 5,
-	minZoom: 4.5,
-	maxZoom: 6
+ mapboxgl.accessToken= 'pk.eyJ1IjoibW9sbHltZXJwIiwiYSI6ImNpazdqbGtiZTAxbGNocm0ybXJ3MnNzOHAifQ.5_kJrEENbBWtqTZEv7g1-w';
+var map = window.map = new mapboxgl.Map({
+    container: 'map',
+    zoom: 12.5,
+    center: [-77.01866, 38.888],
+    style: 'mapbox://styles/mapbox/streets-v10',
+    hash: true
 });
 
 const spinnerEl = document.getElementById('spinner');
@@ -96,4 +94,3 @@ function loadingSpinner(on) {
 </body>
 
 </html>
-

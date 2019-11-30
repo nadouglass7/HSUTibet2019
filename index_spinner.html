@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <title>HSU Tibet Trip 2019</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'  />
+    <!--    Include the reference to the Mapbox JavaScript here in the <head> of the page -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
+    <!--    Include the reference to the Mapbox CSS here in the <head> of the page -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
+    <!--    Include the reference to the Mapbox CSS here in the <head> of the page -->
+    <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet' />
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.10.1/assembly.js"></script>
+    <style>
+        /* Insert the CSS code here between the <style> tags */
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #loading-background { background-color: fffdd0; opacity:.5; position:absolute; top:0; bottom:0; width:100%; }
+        #spinner { position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
+        #image { position:absolute; top:0; bottom:0; width:100%; }
+        .outer {position: relative;}
+    </style>
+  </head>
+  <body>
+  	<div class="outer">
+  		<div id="spinner" class="loading"></div>
+		<div id="loading-background"></div>
+    	<div id="image" style="background-image: url('https://picsum.photos/200/300');"></div>
+    </div>
+    <script>
+
+    </script>
+
+  </body>
+
+</html>
