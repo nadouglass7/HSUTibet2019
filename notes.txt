@@ -38,7 +38,8 @@ Data:
 
 Sources:
 - Charting: https://canvasjs.com/javascript-charts/chart-with-secondary-axis/
-- Line animation: https://docs.mapbox.com/mapbox-gl-js/example/animate-a-line/
+- Line animation: https://docs.mapbox.com/mapbox-gl-js/example/animate-a-line/\
+- Hover markers: https://docs.mapbox.com/help/tutorials/create-interactive-hover-effects-with-mapbox-gl-js/
 
 Checklist:
 
