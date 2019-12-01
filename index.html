@@ -5,25 +5,31 @@
     <meta charset='utf-8' />
     <title>HSU Tibet Trip 2019</title>
     <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no'  />
-    <!--    Include the reference to the Mapbox JavaScript here in the <head> of the page -->
+    <!--    Mapbox Tile API JavaScript and CSS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.js'></script>
-    <!--    Include the reference to the Mapbox CSS here in the <head> of the page -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.0/mapbox-gl.css' rel='stylesheet' />
+    <!--    Mapbox Assembly package JavaScript and CSS -->
+    <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet' />
+    <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.10.1/assembly.js"></script>
     <style>
         /* Insert the CSS code here between the <style> tags */
         body { margin:0; padding:0; }
         #map { position:absolute; top:0; bottom:0; width:100%; }
+        #loading-background {background-color: grey; opacity:.6; position:absolute; top:0; bottom:0; width:100%; filter: blur(8px);}
+        #spinner { position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
     </style>
   </head>
   <body>
     <div id='map'></div>
+  	<div id="loading-background"></div> 
+  	<div id="spinner" class="loading"></div>
     <script>
-        // Insert the JavaScript within the <script> tags, within the body   
-        // Start with the Mapbox access token here
+        // mapbox access token
         mapboxgl.accessToken = 'pk.eyJ1IjoibmRjYXJ0b2dyYXBoeSIsImEiOiJjazFneGRhZWsxOTh6M2RtdnBpaWE2dDA1In0.rA-WbVx8DbzgqKvV98puJg'
         
-            
-        // Then initialize the map here
+        // ----------------------------------  
+        // Initialize map
+        // ----------------------------------  
         var map = new mapboxgl.Map({
             container: 'map', // id of a div on your page, where the map will be inserted
             style:'mapbox://styles/ndcartography/ck3gepwhh01vh1cpllgdz3auz', // stylesheet location -- landcover
@@ -33,8 +39,17 @@
         	maxZoom: 6
         });
 
-        // Add route data
+		// loading Spinner variables
+		const spinnerEl = document.getElementById('spinner');
+		const backgroundEl = document.getElementById('loading-background');
+
+        // ----------------------------------  
+        // Add data sources and initial layers
+        // ---------------------------------- 
         map.on("load", function() {
+        	// Call initial loadingSpinner function
+        	loadingSpinner(false);
+        	
         	// Add source for route data
             map.addSource("route_2019", {
                 type: "geojson",
@@ -49,38 +64,80 @@
             });
             // Add the route-2019 as a layer with styles
             map.addLayer({
-                "id": "route_2019",
-                "type": "line",
-                "source": "route_2019",
-                "paint": {
+                id: "route_2019",
+                type: "line",
+                source: "route_2019",
+                paint: {
                     "line-color": "#991bc6",
                     "line-width": 1.3
                 },
-                "layout": {
+                layout: {
                     "line-join": "round",
                     "line-cap": "round"
                 },
             });
+           
+
             // Add the point_main-2019 as a layer with styles
             map.addLayer({
-                "id": "points_main_2019",
-                "type": "circle",
-                "source": "points_main_2019",
-                "paint": {
+                id: "points_main_2019",
+                type: "circle",
+                source: "points_main_2019",
+                paint: {
                     "circle-radius": [
                     	"match",
                     	["get","display"],
-                    	1, 5.5,
+                    	1, 7,
                     	/*other*/ 0
                     ],                 	   
                     "circle-color": "#991bc6"
                 },
-                // "layout": {
-                //     "line-join": "round",
-                //     "line-cap": "round"
-                // },
             });
+            map.addLayer({
+                id: "points_order_2019",
+                type: "symbol",
+                source: "points_main_2019",
+				filter: ["==", "date_order", " "],
+                layout: {
+                    "text-field": "{date_order}",
+                    "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+                    "text-size": 7
+                }
+            }); 
+            // add spinner, initialize spinner stop when layers render
+            setTimeout(
+            function addLayerSpinner(){
+            	// Call initial loadingSpinner function true
+    	    	loadingSpinner(true);
+    	    	// Stop spinner when layers render
+            	map.on('render', stopSpinner);
+    	    },0)
         });
+        
+        // -------------------------------
+        // loading spinner Functions
+        // -------------------------------
+
+		// stop spinner function
+        function stopSpinner (e) {
+            if (e.target && e.target.loaded()) {
+                loadingSpinner(false);
+                map.off('render', stopSpinner)
+            }
+        }
+        
+        // load spinner function - when new layer clicked
+        function loadingSpinner(on) {
+            if (on) {
+                spinnerEl.classList.add('loading');
+                backgroundEl.classList.add('absolute');
+                backgroundEl.classList.remove('none');
+            } else {
+                spinnerEl.classList.remove('loading');
+                backgroundEl.classList.remove('absolute');
+                backgroundEl.classList.add('none');
+            }
+        }
         
     </script>
 
