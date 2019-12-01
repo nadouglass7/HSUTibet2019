@@ -25,8 +25,8 @@
   	<div id="spinner" class="loading"></div>
     <script>
         // mapbox access token
-        mapboxgl.accessToken = 'pk.eyJ1IjoibmRjYXJ0b2dyYXBoeSIsImEiOiJjazFneGRhZWsxOTh6M2RtdnBpaWE2dDA1In0.rA-WbVx8DbzgqKvV98puJg'
-        
+        mapboxgl.accessToken = 'pk.eyJ1IjoibmRjYXJ0b2dyYXBoeSIsImEiOiJjazFneGRhZWsxOTh6M2RtdnBpaWE2dDA1In0.rA-WbVx8DbzgqKvV98puJg';
+        mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
         // ----------------------------------  
         // Initialize map
         // ----------------------------------  
@@ -34,8 +34,8 @@
             container: 'map', // id of a div on your page, where the map will be inserted
             style:'mapbox://styles/ndcartography/ck3gepwhh01vh1cpllgdz3auz', // stylesheet location -- landcover
             center: [103,32.7845177], // starting position [lng, lat] eg. [-122.6788, 45.5212]
-        	zoom: 5,
-        	minZoom: 4.8,
+        	zoom: 4.8,
+        	minZoom: 4.5,
         	maxZoom: 6
         });
 
@@ -118,7 +118,7 @@
                     "circle-radius": [
                     	"match",
                     	["get","display"],
-                    	1, 7,
+                    	1, 8,
                     	/*other,*/ 0 // if not 1 then make circle size 0
                     ],                 	   
                     "circle-color": "#991bc6"
@@ -134,6 +134,7 @@
                 layout: {
                     "text-field": "{date_order}",
                     "text-font": ["DIN Offc Pro Bold", "Arial Unicode MS Bold"],
+                    "text-allow-overlap": true,
                     "text-size": [
                     	// filter out if display attr is not 1
                     	"match",
@@ -146,6 +147,28 @@
     				"text-color": "white"
   				}
             }); 
+            map.addLayer({
+                "id": "points_name_2019",
+                "type": "symbol",
+                "source": "points_main_2019",
+                "layout": {
+                    "text-field": ["get", "Name"],
+                    "text-variable-anchor": ["bottom-left", "top-right"],
+                    "text-radial-offset": 0.5,
+                    "text-justify": "auto",
+                    "text-size": [
+                    	// filter out if display attr is not 1
+                    	"match",
+                    	["get", "display"],
+            			1, 15,
+            			/*other,*/ 0 // if display not 1 then text will not appear
+            		],
+                },
+                paint: {
+                	"text-halo-color": "#fff",
+                	"text-halo-width": 1.2
+                },
+            });
             // add spinner, initialize spinner stop when layers render
             setTimeout(
             function addLayerSpinner(){
