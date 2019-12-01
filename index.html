@@ -57,7 +57,7 @@
         	// Add source for route data
             map.addSource("route_2019", {
                 type: "geojson",
-                data: "https://raw.githubusercontent.com/ndcartography/HSUTibet2019/master/data/route_2019.geojson"
+                data: "https://raw.githubusercontent.com/ndcartography/HSUTibet2019/master/data/route_2019_simplified.geojson"
             
             });
         	// Add source for point data
@@ -100,7 +100,7 @@
                 paint: {
                     "line-color": "#991bc6",
                     "line-width": 10,
-                    "line-dasharray": [.05, 5]
+                    "line-dasharray": [.01, 5]
                 },
                 layout: {
                     "line-join": "round",
