@@ -50,6 +50,10 @@
         	// Call initial loadingSpinner function
         	loadingSpinner(false);
         	
+        	//-----------------
+        	// Add sources:
+        	//-----------------
+        	
         	// Add source for route data
             map.addSource("route_2019", {
                 type: "geojson",
@@ -62,10 +66,35 @@
                 data: "https://raw.githubusercontent.com/ndcartography/HSUTibet2019/master/data/points_main_2019.geojson"
             
             });
+            
+        	//-----------------
+        	// Add layers:
+        	//-----------------
+
             // Add the route-2019 as a layer with styles
             map.addLayer({
                 id: "route_2019",
                 type: "line",
+                source: "route_2019",
+                paint: {
+                    "line-width": [
+                    	"match",
+                    	["get","class"],
+                    	"bus", 2,
+                    	/*other*/ 1
+                    ],
+                    "line-color": "#991bc6"
+                },
+                layout: {
+                    "line-join": "round",
+                    "line-cap": "round"
+                },
+            });
+            // Additional train track layer for cool track style
+            map.addLayer({
+                id: "route_2019_train_tracks",
+                type: "line",
+                filter: ["==", "class", "train"],
                 source: "route_2019",
                 paint: {
                     "line-color": "#991bc6",
@@ -76,7 +105,6 @@
                     "line-cap": "round"
                 },
             });
-           
 
             // Add the point_main-2019 as a layer with styles
             map.addLayer({
@@ -84,11 +112,12 @@
                 type: "circle",
                 source: "points_main_2019",
                 paint: {
+                	// filter out where attr display is not 1
                     "circle-radius": [
                     	"match",
                     	["get","display"],
                     	1, 7,
-                    	/*other*/ 0
+                    	/*other,*/ 0 // if not 1 then make circle size 0
                     ],                 	   
                     "circle-color": "#991bc6"
                 },
@@ -97,12 +126,21 @@
                 id: "points_order_2019",
                 type: "symbol",
                 source: "points_main_2019",
-				filter: ["==", "date_order", " "],
+				filter: ["!=", "date_order", " "],
                 layout: {
                     "text-field": "{date_order}",
-                    "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
-                    "text-size": 7
-                }
+                    "text-font": ["DIN Offc Pro Bold", "Arial Unicode MS Bold"],
+                    "text-size": [
+                    	// filter out if display attr is not 1
+                    	"match",
+                    	["get", "display"],
+            			1, 12,
+            			/*other,*/ 0 // if display not 1 then text will not appear
+            		],
+                },
+                paint: {
+    				"text-color": "white"
+  				}
             }); 
             // add spinner, initialize spinner stop when layers render
             setTimeout(

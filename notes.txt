@@ -38,6 +38,7 @@ Data:
 
 Sources:
 - Charting: https://canvasjs.com/javascript-charts/chart-with-secondary-axis/
+- Line animation: https://docs.mapbox.com/mapbox-gl-js/example/animate-a-line/
 
 Checklist:
 
