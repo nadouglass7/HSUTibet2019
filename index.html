@@ -45,12 +45,17 @@
       #elevBar {background-color: #f8f9fa; opacity:1; position:absolute; top:85%; bottom:0%; left: 0; width:100%; z-index: 1}
 
   </style>
+  <!--    Canvas.js chart script -->
   <script>
       window.onload = function () {
           
           var chart = new CanvasJS.Chart("chartContainer", {
               backgroundColor: "#f8f9fa",
               animationEnabled: true,
+              // Boolean - whether or not the chart should be responsive and resize when the browser does.
+			  // responsive: true,
+              // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
+              maintainAspectRatio: false,
               title: {
                   text: "Elevation Profile",
                   fontFamily: "arial",
