@@ -1,28 +1,29 @@
 Name,Class,type,date_order,overnight,display,name_zh,name_tb,name_char_zh,note,date_chart
-Beijing,City,stop,1,1,1,,,,,
-Chengdu,City,stop,2,1,1,,,,,
-Dartsendo,City,stop,3,1,1,,,,,
-Lithang,City,stop,4,1,1,,,,,
-Mount Genyen,Mountain,stop,5,1,1, , , , ,
-Rarikawa,Village,stop,5,1,0,,,,,
-Yading Nature Reserve,Nature Reserve,stop,6, ,1, , ,‰∫ö‰∏ÅËá™ÁÑ∂‰øùÊä§Âå∫,,
-Bathang,City,stop,7, ,1,,,,,
-Nyarong,City,stop,8, ,1,,,,,
-Gandze,City,stop,9, ,1,,,,,
-Derge,City,stop,10, ,1,,,,,
-Dzongsar Monastery,Monastery,stop,11, ,1, , ,‡Ω¢‡æ´‡Ωº‡ΩÑ‡ºã‡ΩÇ‡Ω¶‡Ω¢‡ºã‡Ωë‡ΩÇ‡Ωº‡Ωì‡ºç, ,
-Dzogchen,City,stop,12, ,1,,,,,
-Sershul Monastery,Monastery,stop,13, ,1,,,,,
-Jyekundo,City,stop,14, ,1,,,,,
-Maqen,City,stop,15, ,1,,,,,
-Repkong,City,stop,16, ,1,,,,,
-Xining,City,stop,17, ,1,,,,,
-Nakchu,City,stop,18, ,1,Train Station,,,,
-Reting,City,stop,19, ,1,,,,,
-Drigung,City,stop,20, ,1,Drigung Monestary,,,,
-Milin,City,stop,21, ,1,,,,,
-Samye,City,stop,22, ,1,,,,,
-Lhasa,City,stop,23, ,1,,,,,
+Beijing,City,stop,1,1,1,,,,,"2019, 05, 28"
+Chengdu,City,stop,2,1,1,,,,,"2019, 06, 01"
+Dartsendo,City,stop,3,1,1,,,,,"2019, 06, 02"
+Lithang,City,stop,4,1,1,,,,,"2019, 06, 03"
+Mount Genyen,Mountain,stop,5,1,1, , , , ,"2019, 06, 05"
+Rarikawa,Village,stop,5,1,0,,,,,"2019, 06, 05"
+Yading Nature Reserve,Nature Reserve,stop,6, ,1, , ,äº_ä¸Åè‡ªç„¶ä¿ùæ__åŒº,,"2019, 06, 08"
+Bathang,City,stop,7, ,1,,,,,"2019, 06, 11"
+Nyarong,City,stop,8, ,1,,,,,"2019, 06, 13"
+Gandze,City,stop,9, ,1,,,,,"2019, 06, 14"
+Derge,City,stop,10, ,1,,,,,"2019, 06, 15"
+Dzongsar Monastery,Monastery,stop,11, ,1, , ,à_¢à_«à__à_„à_‹à_‚à__à_¢à_‹à_‘à_‚à__à_“à_ç, ,"2019, 06, 15"
+Dzogchen,City,stop,12, ,1,,,,,"2019, 06, 16"
+Sershul,Monastery,stop,13, ,1,,,,,"2019, 06, 17"
+Jyekundo,City,stop,14, ,1,,,,,"2019, 06, 18"
+Maqen,City,stop,15, ,1,,,,,"2019, 06, 19"
+Repkong,City,stop,16, ,1,,,,,"2019, 06, 20"
+Xining,City,stop,17, ,1,,,,,"2019, 06, 23"
+Nakchu,City,stop,18, ,1,Train Station,,,,"2019, 06, 25"
+Reting,City,stop,19, ,1,,,,,"2019, 06, 26"
+Drigung,City,stop,20, ,1,Drigung Monestary,,,,"2019, 06, 27"
+Baji,City,stop,21,,1,,,,,"2019, 06, 28"
+Milin,City,stop,22, ,1,,,,,"2019, 06, 28"
+Samye,City,stop,23, ,1,,,,,"2019, 06, 29"
+Lhasa,City,stop,24, ,1,,,,,"2019, 07, 06"
 Golmud,City,other, , ,0,,,,,
 Guangyuan,City,other, ,0,0,,,,,
 Xi'an,City,other, ,0,0,,,,,
@@ -59,4 +60,4 @@ Damsung?,City,other, , ,0,,,,,
 Sershul Gompa,City,other, , ,0,,,,,
 Tro La Pass,Feature,other, , ,0,,,,,
 Harpo,City,other, , ,0,,,,,
-Shangri-la Town,City,stop, ,1,0,Xianggelilazhen,Riwa,ŒæÊòÇÊ†º‰∏ΩÊãâÁúü,Xianggelilazhen - Shangri La town,
+Shangri-la Town,City,stop, ,1,0,Xianggelilazhen,Riwa,Î_æ˜‚æ _ä¸_æ‹‰çœŸ,Xianggelilazhen - Shangri La town,
