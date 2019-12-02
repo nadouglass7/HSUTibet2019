@@ -52,7 +52,8 @@
               backgroundColor: "#f8f9fa",
               animationEnabled: true,
               title: {
-                  text: "Elevation Profile"
+                  text: "Elevation Profile",
+                  fontFamily: "arial",
               },
               toolTip:{             
         	  	  content: "{indexData}: {y}"
@@ -65,15 +66,18 @@
               },
               axisY: {
                   title: "Elevation ft",
-                  titleFontColor: "#4F81BC",
+                  titleFontColor: "#495057",
                   suffix: " ft"
               },
               data: [{
               	  indexLabelFontWeight: "bold",
-                  indexLabelFontColor: "darkSlateGray",
+                  indexLabelFontColor: "#495057",
                   name: "views",
                   type: "area",
-                  yValueFormatString: "#,##0.0mn",
+                  yValueFormatString: "#,##0.0 ft",
+                  color: "#991bc6",
+                  lineColor:"#991bc6",
+                  fillOpacity: .3,
                   dataPoints: [
                   	   // indexLabel: "Highest", markerColor: "red" 
                       { x: new Date(2019, 05, 28), y: 164.042, indexLabel: "Beijing", indexData: "Beijing"  },
