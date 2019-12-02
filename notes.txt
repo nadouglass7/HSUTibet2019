@@ -38,6 +38,7 @@ Data:
 
 Sources:
 - Charting: https://canvasjs.com/javascript-charts/chart-with-secondary-axis/
+	- BETTER: https://www.chartjs.org/
 - Line animation: https://docs.mapbox.com/mapbox-gl-js/example/animate-a-line/\
 - Hover markers: https://docs.mapbox.com/help/tutorials/create-interactive-hover-effects-with-mapbox-gl-js/
 
@@ -68,3 +69,33 @@ CASE
   ELSE null
 END
 ```
+
+
+
+
+
+Dates for each major location:
+
+1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+10.
+11.
+12.
+13.
+14.
+15.
+16.
+17.
+18.
+19.
+20.
+21.
+22.
+23.
