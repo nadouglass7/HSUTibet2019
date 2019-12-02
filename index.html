@@ -85,18 +85,26 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
+  <!-- ####################### -->
   <!-- Menu Toggle Script -->
+  <!-- ####################### -->
   <script>
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-      
+  </script>
 
-      
+  <!-- ####################### -->    
+  <!-- Mapbox Script -->
+  <!-- ####################### -->
+  <script>   
+    
     // mapbox access token
     mapboxgl.accessToken = 'pk.eyJ1IjoibmRjYXJ0b2dyYXBoeSIsImEiOiJjazFneGRhZWsxOTh6M2RtdnBpaWE2dDA1In0.rA-WbVx8DbzgqKvV98puJg';
+    // mapbox text labeling plugin
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.2.3/mapbox-gl-rtl-text.js');
+
     // ----------------------------------  
     // Initialize map
     // ----------------------------------  
@@ -108,8 +116,9 @@
     	minZoom: 4.5,
     	maxZoom: 6
     });
-
+    // ----------------------------------
 	// loading Spinner variables
+    // ----------------------------------
 	const spinnerEl = document.getElementById('spinner');
 	const backgroundEl = document.getElementById('loading-background');
 
