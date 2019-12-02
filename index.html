@@ -11,7 +11,8 @@
   <title>Simple Sidebar - Start Bootstrap Template</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -29,9 +30,16 @@
       #map { position:fixed; top:0%; bottom:0; left: 0; width:100%; z-index: auto;}
       #loading-background {background-color: grey; opacity:.6; position:absolute; top:0; bottom:0; width:100%; filter: blur(8px);}
       #spinner { position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
-      #menu-toggle {  position: relative; z-index: 1; }
-      .black-background {background-color:#000000;}
-      .white {color:#ffffff;}
+      
+      #menu-toggle {  position: relative; z-index: 1; top: 50%;left: 100%; }
+      /*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
+      .btn-primary {
+          color: #495057;
+          background-color: #f8f9fa;
+          border-color: #f8f9fa; /*set the color you want here*/
+          border-radius: 0;
+      }
+
   </style>
 
 </head>
@@ -42,7 +50,10 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <button type="button" class="btn btn-default btn-lg btn-custom-lg" id="menu-close">X</button>
+        <button type="button"  class="btn btn-primary btn-lg" id="menu-toggle"><h1>&#9776; Menu</h1> </button>
+        <h1>HSU Summer Field Study:</h1>
+        <hr>
+        <h1>2019</h1>
       <div class="list-group list-group-flush">
         <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
         <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
@@ -56,43 +67,8 @@
 
     <!-- Page Content -->
     
-    <div id="page-content-wrapper">
-      <!--
-      <nav id="menu-button" class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-        
-      </nav>
-      -->
-      
-      <div class="container-fluid">
-        
-        <button type="button"s class="btn btn-default btn-lg btn-custom-lg" id="menu-toggle">&#9776; </button>
+    <div id="page-content-wrapper">   
+      <div class="container-fluid">  
         <div id='elevBar' class='' ></div>
         <div id='map'></div>
   	    <div id="loading-background"></div> 
@@ -248,6 +224,10 @@
     			"text-color": "white"
   			}
         }); 
+        
+        //-----------------------------------------
+        // Add labels for city/place name stops
+        //-----------------------------------------
         map.addLayer({
             "id": "points_name_2019",
             "type": "symbol",
@@ -261,16 +241,20 @@
                 	// filter out if display attr is not 1
                 	"match",
                 	["get", "display"],
-        			1, 15,
+        			1, 16,
         			/*other,*/ 0 // if display not 1 then text will not appear
         		],
             },
             paint: {
-            	"text-halo-color": "#fff",
-            	"text-halo-width": 1.2
+                "text-color": "black",
+                "text-halo-color": "#fff",
+            	"text-halo-width": 1.7
             },
         });
+        
+        //----------------------------------------------------------
         // add spinner, initialize spinner stop when layers render
+        //----------------------------------------------------------
         setTimeout(
         function addLayerSpinner(){
         	// Call initial loadingSpinner function true
