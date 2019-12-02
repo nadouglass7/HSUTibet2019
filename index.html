@@ -32,13 +32,16 @@
       #spinner { position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
       
       #menu-toggle {  position: relative; z-index: 1; top: 50%;left: 100%; }
+      .toggle-close {right: 100%}
       /*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
       .btn-primary {
           color: #495057;
           background-color: #f8f9fa;
           border-color: #f8f9fa; /*set the color you want here*/
           border-radius: 0;
+          z-index: 1;
       }
+      #elevBar {background-color: white; opacity:.6; position:absolute; top:75%; bottom:0%; left: 0; width:100%; z-index: 1}
 
   </style>
 
@@ -47,10 +50,12 @@
 <body>
 
   <div class="d-flex toggled" id="wrapper">
-
-    <!-- Sidebar -->
+  
+    <!-- ####################### -->
+             <!-- SIDEBAR -->
+    <!-- ####################### -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <button type="button"  class="btn btn-primary btn-lg" id="menu-toggle"><h1>&#9776; Menu</h1> </button>
+        <button type="button"  class="btn btn-primary btn-lg" id="menu-toggle" ><h1>&#9776; Menu</h1> </button>
         <h1>HSU Summer Field Study:</h1>
         <hr>
         <h1>2019</h1>
@@ -63,28 +68,18 @@
         <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
       </div>
     </div>
-    <!-- /#sidebar-wrapper -->
-
-    <!-- Page Content -->
-    
-    <div id="page-content-wrapper">   
+    <!-- ####################### -->
+          <!-- MAIN CONTENT -->
+    <!-- ####################### -->
+    <div id="page-content-wrapper">  
       <div class="container-fluid">  
-        <div id='elevBar' class='' ></div>
+        <div id='elevBar' class='elevBar' ></div>
         <div id='map'></div>
   	    <div id="loading-background"></div> 
   	    <div id="spinner" class="loading"></div>
-        <!--
-        <h1 class="mt-4">Simple Sidebar</h1>
-        
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
-        -->
       </div>
     </div>
-    <!-- /#page-content-wrapper -->
-
   </div>
-  <!-- /#wrapper -->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -96,10 +91,8 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
-    $("#menu-close").click(function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    });
+      
+
       
     // mapbox access token
     mapboxgl.accessToken = 'pk.eyJ1IjoibmRjYXJ0b2dyYXBoeSIsImEiOiJjazFneGRhZWsxOTh6M2RtdnBpaWE2dDA1In0.rA-WbVx8DbzgqKvV98puJg';
