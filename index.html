@@ -127,17 +127,37 @@
              <!-- SIDEBAR -->
     <!-- ####################### -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-        <button type="button"  class="btn btn-primary btn-lg" id="menu-toggle" ><h1>&#9776; Menu</h1> </button>
-        <h1>HSU Summer Field Study:</h1>
-        <hr>
-        <h1>2019</h1>
+      <button type="button"  class="btn btn-primary btn-lg" id="menu-toggle" ><h1>&#9776; Menu</h1> </button>
+
+      <a  class="list-group"></a>
+      <h3 class="card-title"><b>HSU China Tibet Field Study:</b></h3>
+      <h3 class="card-title"><b>Summer 2019</b></h3>
       <div class="list-group list-group-flush">
-        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
-        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
+        <div class="card-body">
+          <h3 class="card-title"><b>Summary:</b></h3>
+          <p class="card-text">This map shows the field study route taken during the summer 2019. Numbers indicate places visited in order </p>
+        </div>
+        
+        <div class="card-body">
+          <h5 class="card-title"><b>Dates</b></h5>
+          <p class="card-text">May 28th - July 6th</p>
+        </div>
+        
+        <div class="card-body">
+          <h5 class="card-title"><b>Duration:</b></h5>
+          <p class="card-text"> 5 Weeks, 4 Days </p>
+        </div>
+        
+        <div class="card-body">
+          <h5 class="card-title"><b>Approx. Driving Distance:</b></h5>
+          <p class="card-text"> 3,495 mi</p>
+        </div>
+        
+        <div class="card-body">
+          <h5 class="card-title"><b>Number of Students:</b></h5>
+          <p class="card-text"> 13 </p>
+        </div>
+
       </div>
     </div>
     <!-- ####################### -->
@@ -186,7 +206,7 @@
         container: 'map', // id of a div on your page, where the map will be inserted
         style:'mapbox://styles/ndcartography/ck3gepwhh01vh1cpllgdz3auz', // stylesheet location -- landcover
         center: [103,32.7845177], // starting position [lng, lat] eg. [-122.6788, 45.5212]
-    	zoom: 4.8,
+    	zoom: 4.5,
     	minZoom: 4.5,
     	maxZoom: 6
     });
