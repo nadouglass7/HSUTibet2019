@@ -5,8 +5,8 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Route map of HSU China & Tibet Field Study Program 2019">
+  <meta name="author" content="@ndcartography">
 
   <title>HSU Tibet Field Study 2019</title>
 
@@ -27,9 +27,7 @@
   <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet' />
   <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.10.1/assembly.js"></script>
 
-  <!--    Canvas.js chart script -->
-  <script src='js/elevChart.js'></script>
-  
+  <!--  CSS overide button and card style -->
   <style>
     .btn-primary {
         color: #495057;
@@ -41,23 +39,26 @@
         top:0;
         left: 0;
     }
+    .card-body {
+    	padding: 5px;
+    	margin-left:2px;
+    	padding-bottom: 1pt;
+    
+    }
   </style>
-  
 </head>
-
 <body>
     
   <div class="d-flex toggled" id="wrapper">
     <!-- ####################### -->
              <!-- SIDEBAR -->
     <!-- ####################### -->
-    <div class="bg-light border-right" id="sidebar-wrapper" style="padding: 5px;">
-      <button type="button"  class="btn btn-primary btn-lg" id="menu-toggle" ><h1>&#9776; Menu</h1> </button>
+    <div class="bg-light border-right" id="sidebar-wrapper" >
 
-      <a  class="list-group" ></a>
-        <h3 class="card-title" ><b>HSU China Tibet Field Study:</b></h3>
-        <h3 class="card-title"><b>Summer 2019</b></h3>
-      <div class="list-group list-group-flush">
+      <button type="button"  class="btn btn-primary btn-lg" id="menu-toggle" ><h1>&#9776; Menu</h1> </button>
+	  <h3 class="card-title" style="padding: 5px;"><b>HSU China Tibet Field Study:</b></h3>
+      <h3 class="card-title" style="padding: 5px;"><b>Summer 2019</b></h3>
+      <div class="list-group list-group-flush" style="overflow-y: auto; font-size: 10pt;">
         <div class="card-body">
           <h3 class="card-title"><b>Summary:</b></h3>
           <p class="card-text">This map shows the field study route taken during the summer 2019. Numbers indicate places visited in order </p>
@@ -116,11 +117,17 @@
                        "The world was furiously engaged in its second great war.. one single atom bomb destroyed one human city at a glance. But here, in this Land of Snows, little was known of these, for we lived in another world, a world of ancient ages where folks lived with gods and demons." - W. Tailing 
                     </i>
                 </div>
+                
+                <div id="subtext">
+                    <br>
+                    <br>
+                    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a><br /><i style="font-size:8pt;">This work is licensed under a </i><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><i style="font-size:8pt;">Creative Commons Attribution-NonCommercial 4.0 International License</i></a>.
+                </div>
             </div>  
         </div>
         <!-- Map -->
         <div id='map'></div>
-          
+        
         <!-- Loading Spinner and Background -->
   	    <div id="loading-background"></div> 
   	    <div id="spinner" class="loading"></div>
@@ -128,15 +135,16 @@
         <!-- Legend -->
         <div id='legendBar' > 
             <div>
-                <p>Travel by rail -   <img src="image/rail.PNG" style="clip-path: circle(20%); margin-left: 10px;" alt="Smiley face" align="middle"> </p>
+                <p>Travel by rail:   <img src="image/rail.PNG" style="clip-path: circle(20%); margin-left: 10px;" alt="Smiley face" align="middle"> </p>
             </div>
             <div>
-                <p>Travel by bus - <img src="image/bus.PNG" style="clip-path: circle(18%);" alt="Smiley face" align="middle"> </p>
+                <p>Travel by bus: <img src="image/bus.PNG" style="clip-path: circle(18%);" alt="Smiley face" align="middle"> </p>
             </div>
         </div>
       </div>
     </div>
   </div>
+  
   <!-- ####################### -->
   <!-- Bootstrap core JavaScript -->
   <!-- ####################### -->
@@ -365,7 +373,14 @@
       
 
   </script>
+  
+  <!-- ####################### -->    
+  <!-- Canvas Script - At the end to load map first before chart -->
+  <!-- ####################### -->
   <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!--    Canvas.js chart script -->
+  <script src='js/elevChart.js'></script>
+  
 </body>
 
 </html>
