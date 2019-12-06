@@ -46,18 +46,17 @@
 </head>
 
 <body>
-
+    
   <div class="d-flex toggled" id="wrapper">
-  
     <!-- ####################### -->
              <!-- SIDEBAR -->
     <!-- ####################### -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="bg-light border-right" id="sidebar-wrapper" style="padding: 5px;">
       <button type="button"  class="btn btn-primary btn-lg" id="menu-toggle" ><h1>&#9776; Menu</h1> </button>
 
-      <a  class="list-group"></a>
-      <h3 class="card-title"><b>HSU China Tibet Field Study:</b></h3>
-      <h3 class="card-title"><b>Summer 2019</b></h3>
+      <a  class="list-group" ></a>
+        <h3 class="card-title" ><b>HSU China Tibet Field Study:</b></h3>
+        <h3 class="card-title"><b>Summer 2019</b></h3>
       <div class="list-group list-group-flush">
         <div class="card-body">
           <h3 class="card-title"><b>Summary:</b></h3>
@@ -114,7 +113,7 @@
                 </div>
                 <div id="subtext">
                     <i>
-                       "Quote" 
+                       "The world was furiously engaged in its second great war.. one single atom bomb destroyed one human city at a glance. But here, in this Land of Snows, little was known of these, for we lived in another world, a world of ancient ages where folks lived with gods and demons." - W. Tailing 
                     </i>
                 </div>
             </div>  
@@ -172,7 +171,12 @@
         center: [103,32.7845177], // starting position [lng, lat] eg. [-122.6788, 45.5212]
     	zoom: 4.5,
     	minZoom: 4.5,
-    	maxZoom: 6
+    	maxZoom: 6,
+        maxBounds: [
+            [74,15],
+            [130,54]
+        ]
+        
     });
     // ----------------------------------
 	// loading Spinner variables
@@ -276,7 +280,7 @@
                 	// filter out if display attr is not 1
                 	"match",
                 	["get", "display"],
-        			1, 12,
+        			1, 12, // if display value is 1 then style text at this font
         			/*other,*/ 0 // if display not 1 then text will not appear
         		],
             },
@@ -295,13 +299,13 @@
             "layout": {
                 "text-field": ["get", "Name"],
                 "text-variable-anchor": ["bottom-left", "top-right"],
-                "text-radial-offset": 0.5,
+                "text-radial-offset": 0.9,
                 "text-justify": "auto",
                 "text-size": [
                 	// filter out if display attr is not 1
                 	"match",
                 	["get", "display"],
-        			1, 16,
+        			1, 10, // if display value is 1 then style text at this font
         			/*other,*/ 0 // if display not 1 then text will not appear
         		],
             },

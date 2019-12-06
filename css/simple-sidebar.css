@@ -4,7 +4,7 @@
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
  */
 body {
-  overflow-x: hidden;
+  
 }
 
 #sidebar-wrapper {
@@ -13,7 +13,7 @@ body {
   /* min-height: 100vh;*/
   min-height: 85%;
   bottom: 100;
-  margin-left: -15rem;
+  margin-left: -20rem;
   -webkit-transition: margin .25s ease-out;
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;

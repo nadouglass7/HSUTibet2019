@@ -16,14 +16,19 @@
 body { 
     margin:0; 
     padding:0; 
-    overflow-y: hidden
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-color: #f8f9fa;
+    
 }
 
 
 #map { 
     position:fixed; 
-    top:0%; bottom:16%; 
-    left: 0; width:100%; 
+    top:0%; 
+    bottom:16%; 
+    left: 0; 
+    width:100%; 
     z-index: auto;
 }
 
@@ -51,12 +56,13 @@ body {
 }
 
 /*-------------------------------------------*\
-    menu
+    slider menu button -  also see simple-slider.css
 \*-------------------------------------------*/
 
 #menu-toggle {  
     position: relative; 
-    z-index: 1; top: 50%;
+    z-index: 1;
+    top: 100%;
     left: 100%; 
 }
 
@@ -102,8 +108,8 @@ body {
     max-width:500px; 
     z-index: 1;
     padding: 15px;
-    min-width:50%;
-    overflow: auto;
+
+    overflow-y: auto;
 }
 
 /*the exit button in the top right corner*/
@@ -124,32 +130,13 @@ body {
 }
 
 
-#title-header {
-    position: absolute;
-    top: 5%;
-    left: 0%;
-    width:100%; 
-    text-align: center; 
-    font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
-    overflow-y: visible;
-}
-
-#title-text {
-    position: absolute;
-    top: 0;
-    left: 0%;
-    width:100%; 
-    text-align: center;
-    line-height: 0; 
-    padding: 0;
-}
-
 #header {
     margin: 5%;
     text-align: center;
     font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;
     font-size: 35px; 
     width:100%; 
+    line-height: 40px;
     
 
     
