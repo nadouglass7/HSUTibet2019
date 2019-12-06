@@ -14,7 +14,10 @@
   <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- Custom styles for this template -->
+  <!-- CSS link for main.css -->
+  <link href="css/main.css" rel="stylesheet">
+    
+  <!-- CSS for side slide-bar -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
     
   <!--    Mapbox Tile API JavaScript and CSS -->
@@ -24,130 +27,22 @@
   <link href='https://api.mapbox.com/mapbox-assembly/v0.20.0/assembly.min.css' rel='stylesheet' />
   <script async defer src="https://api.mapbox.com/mapbox-assembly/v0.10.1/assembly.js"></script>
 
-    
-  <style>
-      /* Insert the CSS code here between the <style> tags */
-      body { margin:0; padding:0; }
-      #map { position:fixed; top:0%; bottom:0; left: 0; width:100%; z-index: auto;}
-      #loading-background {background-color: grey; opacity:.6; position:absolute; top:0; bottom:0; width:100%; filter: blur(8px);}
-      #spinner { position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
-      
-      #menu-toggle {  position: relative; z-index: 1; top: 50%;left: 100%; }
-      .toggle-close {right: 100%}
-      /*This is modifying the btn-primary colors but you could create your own .btn-something class as well*/
-      .btn-primary {
-          color: #495057;
-          background-color: #f8f9fa;
-          border-color: #f8f9fa; /*set the color you want here*/
-          border-radius: 0;
-          z-index: 1;
-      }
-      #elevBar {background-color: #f8f9fa; opacity:1; position:absolute; top:85%; bottom:0; left: 0; width:100%; z-index: 1}
-      #titleBar {background-color: #f8f9fa; opacity:1; position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%); top:50%; bottom:0%; left: 50%; width:50%; z-index: 1}
-      #x-box {
-        position: absolute;
-        background: black;
-        color: white;
-        top: 0px;
-        right: 0px;
-        height: 3%;
-        width: 3%;
-      }
-      #x { position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);}
-      #title-header {position: absolute;top: 5%;left: 0%;width:100%; text-align: center; font-family: Didot, "Didot LT STD", "Hoefler Text", Garamond, "Times New Roman", serif;}
-      #title-text {position: absolute;top: 20%;left: 0%;width:100%; text-align: center;line-height: 20pt; padding: 5%;}
-      hr.sep-3 {
-        margin-top: 3%;
-        margin-bottom: 3%;
-        border: none;
-        height: 1px;
-        background-image: linear-gradient(to right, #f0f0f0, #8f8f8f, #f0f0f0);
-      }
-      hr.sep-3::after {
-        
-        display: inline-block;
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(60deg);
-        transform-origin: 50% 50%;
-        padding: 1rem;
-        background-color: white;
-      }
-  </style>
   <!--    Canvas.js chart script -->
-  <script>
-      window.onload = function () {
-          
-          var chart = new CanvasJS.Chart("chartContainer", {
-              backgroundColor: "#f8f9fa",
-              animationEnabled: true,
-              // Boolean - whether or not the chart should be responsive and resize when the browser does.
-			  // responsive: true,
-              // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-              maintainAspectRatio: false,
-              title: {
-                  text: "Elevation Profile",
-                  fontFamily: "arial",
-              },
-              toolTip:{             
-        	  	  content: "{indexData}: {y}"
-      		  },
-              axisX: {
-                  title: "Date",
-                  minimum: new Date(2019, 05, 28),
-                  maximum: new Date(2019, 07, 07),
-                  valueFormatString: "MMM DD",
-              },
-              axisY: {
-                  title: "Elevation ft",
-                  titleFontColor: "#495057",
-                  suffix: " ft",
-                  maximum: 20000
-              },
-              data: [{
-              	  indexLabelFontWeight: "bold",
-                  indexLabelFontColor: "#495057",
-                  indexLabelPlacement: "outside",
-                  name: "views",
-                  type: "area",
-                  yValueFormatString: "#,##0.0 ft",
-                  color: "#991bc6",
-                  lineColor:"#991bc6",
-                  fillOpacity: .3,
-                  dataPoints: [
-                  	   // indexLabel: "Highest", markerColor: "red" 
-                      { x: new Date(2019, 05, 28), y: 164.042, indexLabel: "Beijing", indexData: "Beijing"  },
-                      { x: new Date(2019, 06, 01), y: 1676.50924, indexData: "Chengdu"  },
-                      { x: new Date(2019, 06, 02), y: 8205.38084, indexData: "Dartsendo"  },
-                      { x: new Date(2019, 06, 03), y: 13061.02404, indexData: "Lithang"  },
-                      { x: new Date(2019, 06, 05), y: 13346.45712, indexData: "Mount Genyen", indexLabel: "Mount Genyen" },
-                      { x: new Date(2019, 06, 05), y: 12401.5752, indexData: "Rarikawa"  },
-                      { x: new Date(2019, 06, 08), y: 12851.05028, indexData: "Yading Nature Reserve"  },
-                      { x: new Date(2019, 06, 11), y: 8461.28636, indexData: "Bathang"  },
-                      { x: new Date(2019, 06, 13), y: 10026.24704, indexData: "Nyarong"  },
-                      { x: new Date(2019, 06, 14), y: 11053.14996, indexData: "Gandze"  },
-                      { x: new Date(2019, 06, 15), y: 10777.5594, indexData: "Derge"  },
-                      { x: new Date(2019, 06, 15), y: 11624.01612, indexData: "Dzongsar Monastery"  },
-                      { x: new Date(2019, 06, 16), y: 12933.07128, indexData: "Dzogchen"  },
-                      { x: new Date(2019, 06, 17), y: 13713.9112, indexData: "Sershul"  },
-                      { x: new Date(2019, 06, 18), y: 12040.6828, indexData: "Jyekundo"  },
-                      { x: new Date(2019, 06, 19), y: 12198.16312, indexData: "Maqen"  },
-                      { x: new Date(2019, 06, 20), y: 8182.41496, indexData: "Repkong"  },
-                      { x: new Date(2019, 06, 23), y: 7385.17084, indexData: "Xining"  },
-                      { x: new Date(2019, 06, 25), y: 14786.74588, indexData: "Nakchu"  },
-                      { x: new Date(2019, 06, 26), y: 13943.57, indexData: "Reting"  },
-                      { x: new Date(2019, 06, 27), y: 14553.80624, indexData: "Drigung"  },
-                      { x: new Date(2019, 06, 28), y: 9803.14992, indexData: "Baji"  },
-                      { x: new Date(2019, 06, 28), y: 9642.38876, indexData: "Milin"  },
-                      { x: new Date(2019, 06, 29), y: 11751.96888, indexData: "Samye"  },
-                      { x: new Date(2019, 07, 06), y: 11991.4702, indexLabel: "Lhasa", indexData: "Lhasa"  },
-                  ]
-              }]
-          });
-          chart.render();
-          
-      }
-  </script>
+  <script src='js/elevChart.js'></script>
+  
+  <style>
+    .btn-primary {
+        color: #495057;
+        background-color: #f8f9fa;
+        border-color: #f8f9fa; /*set the color you want here*/
+        border-radius: 0;
+        z-index: 1;
+        position:absolute;
+        top:0;
+        left: 0;
+    }
+  </style>
+  
 </head>
 
 <body>
@@ -196,30 +91,46 @@
     <!-- ####################### -->
     <div id="page-content-wrapper">  
       <div class="container-fluid">  
+        
+        <!-- Elevation Chart -->
         <div id='elevBar' class='elevBar' >
             <div id="chartContainer" style=" background-color: #f8f9fa; height: 100%; width: 100%; position:absolute; top:0; bottom:0; left: 0;"></div>
         </div>
+          
+        <!-- Splash Screen Title -->
         <div id='titleBar' class='titleBar' > 
             <button id="x-box" type="button" class="close" aria-label="Close" onclick="closeTitle()">
                 <span aria-hidden="true" id="x">&times;</span>
             </button>
-            <div id="title-header" class='h1'> 
-                <i>Humboldt State China & Tibet Field Study 2019</i>
-                <hr class="sep-3" />
-            </div>
-            <div id="title-text" class='h6'> 
-                <p>The Tibetan Plateau has long been regarded as one of the most isolated regions on Earth. Due to globalization and recent influxes of tourism, this once untouched landscape has now been subject to significant physical and cultural changes. With the help of Humboldt State professor Toni Rossi, students have been able to visit this area through the Humboldt State Tibet & China Field Study Program. In the summer of 2019, the program took its final trip, making this the 14th and final year that students have been able to conduct meaningful field research in a rapidly changing landscape. This map details the route taken and helps illustrate the extraordinary journey. </p>
-                <i></i>
-            </div>
+            <div class="container">
+                <div id="header">
+                    <i>Humboldt State China & Tibet Field Study 2019</i>
+                </div>
+                <hr>
+                <div id="subtext">
+                    <p>
+                        The Tibetan Plateau has long been regarded as one of the most isolated regions on Earth. Due to globalization and recent influxes of tourism, this once untouched landscape has now been subject to significant physical and cultural change. With the help of Humboldt State professor Toni Rossi, students have been able to visit this area through the Humboldt State Tibet & China Field Study Program. In the summer of 2019, the program took its final trip, making this the 14th and final year that students have been able to conduct meaningful field research, in a rapidly changing landscape. This map details the route taken and helps illustrate the extraordinary journey. 
+                    </p>
+                </div>
+                <div id="subtext">
+                    <i>
+                       "Quote" 
+                    </i>
+                </div>
+            </div>  
         </div>
+        <!-- Map -->
         <div id='map'></div>
+          
+        <!-- Loading Spinner and Background -->
   	    <div id="loading-background"></div> 
   	    <div id="spinner" class="loading"></div>
       </div>
     </div>
   </div>
-
+  <!-- ####################### -->
   <!-- Bootstrap core JavaScript -->
+  <!-- ####################### -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
